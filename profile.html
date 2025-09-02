@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | CA Test Series</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #1B262C;
+            --secondary-bg: #22303A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --accent-blue: #00BFFF;
+            --accent-blue-dark: #009ACD;
+            --border-color: #38424A;
+            --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+        }
+
+        /* --- Sidebar Navigation --- */
+        .sidebar {
+            width: 250px;
+            background-color: var(--secondary-bg);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            border-right: 1px solid var(--border-color);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-primary);
+        }
+        
+        .nav-menu {
+            list-style: none;
+            flex-grow: 1;
+        }
+        
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
+        
+        .nav-menu a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: var(--primary-bg);
+            color: var(--accent-blue);
+        }
+
+        .nav-menu a span {
+            font-size: 18px;
+        }
+
+        .logout-button {
+            background-color: transparent;
+            border: 2px solid var(--text-secondary);
+            color: var(--text-secondary);
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .logout-button:hover {
+            background-color: var(--text-secondary);
+            color: var(--primary-bg);
+        }
+
+        /* --- Main Content Area --- */
+        .main-content {
+            margin-left: 250px;
+            padding: 30px;
+            width: calc(100% - 250px);
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+        }
+        
+        .user-info-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-info-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .profile-pic-header {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--accent-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-bg);
+        }
+
+        /* --- Profile Page Specific Styles --- */
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+        
+        .profile-pic-main {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: var(--accent-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--primary-bg);
+        }
+
+        .profile-details {
+            width: 100%;
+        }
+
+        .profile-details h2 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .profile-details p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .details-list {
+            list-style: none;
+            text-align: left;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+        
+        .details-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .details-list li:last-child {
+            border-bottom: none;
+        }
+
+        .details-list .label {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .details-list .value {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .edit-button {
+            background-color: transparent;
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .edit-button:hover {
+            background-color: var(--accent-blue);
+            color: var(--primary-bg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">CA Test Series</div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html"><span>📊</span> Dashboard</a></li>
+            <li><a href="my_tests.html"><span>📝</span> My Tests</a></li>
+            <li><a href="performance.html"><span>📈</span> Performance</a></li>
+            <li><a href="#" class="active"><span>⚙️</span> Profile</a></li>
+        </ul>
+        <a href="index.html" class="logout-button">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>My Profile</h1>
+            <div class="user-info-header">
+                <h3>CA Final | Group 1</h3>
+                <div class="profile-pic-header">RK</div>
+            </div>
+        </div>
+        
+        <div class="card profile-card">
+            <div class="profile-pic-main">RK</div>
+            <div class="profile-details">
+                <h2>Rahul Kumar</h2>
+                <p>CA Final | Group 1</p>
+                <ul class="details-list">
+                    <li>
+                        <span class="label">Email</span>
+                        <span class="value">rahulkumar@gmail.com</span>
+                    </li>
+                    <li>
+                        <span class="label">Mobile Number</span>
+                        <span class="value">+91 9876543210</span>
+                    </li>
+                    <li>
+                        <span class="label">Enrollment Number</span>
+                        <span class="value">CA2025-012345</span>
+                    </li>
+                    <li>
+                        <span class="label">Course Enrolled</span>
+                        <span class="value">CA Final</span>
+                    </li>
+                </ul>
+                <button class="edit-button">Edit Profile</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
