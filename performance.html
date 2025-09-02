@@ -145,7 +145,7 @@
             font-weight: bold;
             color: var(--primary-bg);
         }
-        
+
         .section-heading {
             font-size: 28px;
             font-weight: 600;
@@ -154,13 +154,6 @@
         }
 
         /* --- Performance Page Specific Styles --- */
-        .performance-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
         .card {
             background-color: var(--secondary-bg);
             padding: 25px;
@@ -168,22 +161,6 @@
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-dark);
             margin-bottom: 30px;
-        }
-
-        .stat-card {
-            text-align: center;
-        }
-        
-        .stat-card h3 {
-            font-size: 40px;
-            font-weight: 700;
-            color: var(--accent-blue);
-            margin-bottom: 5px;
-        }
-        
-        .stat-card p {
-            font-size: 16px;
-            color: var(--text-secondary);
         }
 
         .chart-container {
@@ -198,58 +175,38 @@
             font-size: 24px;
             text-align: center;
             border: 1px dashed var(--border-color);
-            margin-bottom: 40px;
         }
         
-        .subject-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 16px;
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+            margin-top: 20px;
         }
 
-        .subject-table thead th {
-            text-align: left;
-            padding: 15px;
-            color: var(--text-secondary);
-            border-bottom: 2px solid var(--border-color);
-        }
-        
-        .subject-table tbody td {
-            padding: 18px 15px;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-primary);
-        }
-        
-        .subject-table tbody tr:hover {
+        .stat-item {
             background-color: #2D3E4E;
+            padding: 25px;
+            border-radius: 12px;
         }
 
-        .strength-weakness-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .strength-weakness-list li {
-            background-color: var(--primary-bg);
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .stat-item h4 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #28a745; /* Green for positive stats */
+            margin-bottom: 5px;
         }
 
-        .strength-weakness-list li.strength {
-            border-left: 4px solid #28a745;
-        }
-        
-        .strength-weakness-list li.weakness {
-            border-left: 4px solid #dc3545;
+        .stat-item p {
+            font-size: 16px;
+            color: var(--text-secondary);
         }
 
-        .strength-weakness-list span {
-            font-weight: 600;
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: var(--text-secondary);
             font-size: 14px;
         }
     </style>
@@ -269,88 +226,45 @@
 
     <div class="main-content">
         <div class="header">
-            <h1>Performance Analysis</h1>
+            <h1>Performance</h1>
             <div class="user-info">
                 <h3>CA Final | Group 1</h3>
                 <div class="profile-pic">RK</div>
             </div>
         </div>
+        
+        <div class="card">
+            <h2 class="section-heading">Test-wise Performance Graph</h2>
+            <div class="chart-container">
+                <p>Placeholder for a bar chart or line graph showing test scores over time.</p>
+            </div>
+        </div>
 
         <div class="performance-grid">
-            <div class="card stat-card">
-                <h3>85%</h3>
+            <div class="stat-item">
+                <h4>85%</h4>
                 <p>Average Score</p>
             </div>
-            <div class="card stat-card">
-                <h3>92%</h3>
-                <p>Overall Accuracy</p>
+            <div class="stat-item">
+                <h4>12</h4>
+                <p>Tests Completed</p>
             </div>
-            <div class="card stat-card">
-                <h3>AIR 12</h3>
-                <p>Average Rank</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2 class="section-heading">Score Trend</h2>
-            <div class="chart-container">
-                <p>Placeholder for Performance Graph (Line Chart)</p>
+            <div class="stat-item">
+                <h4>AIR 5</h4>
+                <p>Best Rank</p>
             </div>
         </div>
 
         <div class="card">
-            <h2 class="section-heading">Subject-wise Breakdown</h2>
-            <table class="subject-table">
-                <thead>
-                    <tr>
-                        <th>Subject</th>
-                        <th>Avg. Score</th>
-                        <th>Avg. Time</th>
-                        <th>Accuracy</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="test-subject">Financial Reporting</td>
-                        <td>92%</td>
-                        <td>120 mins</td>
-                        <td>95%</td>
-                    </tr>
-                    <tr>
-                        <td class="test-subject">Strategic Management</td>
-                        <td>88%</td>
-                        <td>90 mins</td>
-                        <td>90%</td>
-                    </tr>
-                    <tr>
-                        <td class="test-subject">Corporate Law</td>
-                        <td>80%</td>
-                        <td>110 mins</td>
-                        <td>82%</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="performance-grid">
-            <div class="card">
-                <h2 class="section-heading">Strengths</h2>
-                <ul class="strength-weakness-list">
-                    <li class="strength"><span>✔</span> Quick at Problem Solving</li>
-                    <li class="strength"><span>✔</span> Strong in Theoretical Concepts</li>
-                    <li class="strength"><span>✔</span> Good Time Management</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h2 class="section-heading">Weaknesses</h2>
-                <ul class="strength-weakness-list">
-                    <li class="weakness"><span>✖</span> Needs Improvement in Numerical Questions</li>
-                    <li class="weakness"><span>✖</span> Difficulty in Long Questions</li>
-                </ul>
+            <h2 class="section-heading">Subject-wise Analysis</h2>
+            <div class="chart-container" style="height: 250px;">
+                <p>Placeholder for a pie chart showing subject performance.</p>
             </div>
         </div>
-
+        
+        <footer class="footer">
+            <p>&copy; 2025 CA Test Series. All rights reserved.</p>
+        </footer>
     </div>
-
 </body>
 </html>
