@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Signup | CA Test Series</title>
+    <title>Create Account | CA Test Series</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
             --border-color: #38424A;
             --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.2);
         }
-
+        
         * {
             margin: 0;
             padding: 0;
@@ -33,115 +33,113 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
         }
 
         .signup-container {
-            width: 100%;
-            max-width: 450px;
+            width: 90%;
+            max-width: 500px;
             background-color: var(--secondary-bg);
             padding: 40px;
             border-radius: 12px;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-dark);
-            text-align: center;
         }
 
         .signup-container h2 {
             font-size: 32px;
             font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .signup-container p {
-            font-size: 15px;
+            text-align: center;
             color: var(--text-secondary);
             margin-bottom: 30px;
         }
 
-        .form-group {
-            text-align: left;
+        .signup-form .form-group {
             margin-bottom: 20px;
         }
 
-        .form-group label {
+        .signup-form label {
             display: block;
-            font-size: 14px;
             font-weight: 500;
             margin-bottom: 8px;
-            color: var(--text-secondary);
+            color: var(--text-primary);
         }
 
-        .form-group input {
+        .signup-form input,
+        .signup-form select {
             width: 100%;
             padding: 14px;
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            background-color: var(--primary-bg);
+            border-radius: 8px;
+            background-color: #2D3E4E;
             color: var(--text-primary);
             font-size: 16px;
             transition: border-color 0.3s ease;
         }
-        
-        .form-group input:focus {
+
+        .signup-form input:focus,
+        .signup-form select:focus {
             outline: none;
             border-color: var(--accent-blue);
         }
 
-        .signup-button {
+        .signup-form .signup-button {
             width: 100%;
             background-color: var(--accent-blue);
             color: var(--primary-bg);
             padding: 16px;
             border: none;
             border-radius: 8px;
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
             margin-top: 10px;
         }
 
-        .signup-button:hover {
+        .signup-form .signup-button:hover {
             background-color: var(--accent-blue-dark);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .login-link {
-            font-size: 15px;
+            display: block;
+            text-align: center;
             margin-top: 25px;
             color: var(--text-secondary);
+            font-size: 14px;
         }
-        
+
         .login-link a {
             color: var(--accent-blue);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
         }
-        
+
         .login-link a:hover {
-            color: var(--accent-blue-dark);
+            text-decoration: underline;
         }
+
     </style>
 </head>
 <body>
 
     <div class="signup-container">
-        <h2>Create an Account</h2>
-        <p>Sign up to start your journey towards CA success.</p>
-        <form>
+        <h2>Create a New Account</h2>
+        <p>Join India's premier CA Test Series platform today.</p>
+        
+        <form class="signup-form">
             <div class="form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="mobile">Mobile Number</label>
-                <input type="tel" id="mobile" name="mobile" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
+                <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
@@ -149,13 +147,19 @@
                 <input type="password" id="password" name="password" required>
             </div>
             <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
+                <label for="course">Select Course</label>
+                <select id="course" name="course" required>
+                    <option value="">Select a course</option>
+                    <option value="foundation">CA Foundation</option>
+                    <option value="inter">CA Inter</option>
+                    <option value="final">CA Final</option>
+                </select>
             </div>
             <button type="submit" class="signup-button">Sign Up</button>
         </form>
+
         <div class="login-link">
-            Already have an account? <a href="login.html">Login</a>
+            Already have an account? <a href="login.html">Log In</a>
         </div>
     </div>
 
