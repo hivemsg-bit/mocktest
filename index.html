@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-bg: #FFFFFF;
-            --secondary-bg: #F0F0F0;
-            --text-primary: #1A1A1A;
-            --text-secondary: #555555;
+            --primary-bg: #111111;
+            --secondary-bg: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
             --accent-blue: #007bff;
             --accent-blue-dark: #0056b3;
-            --border-color: #DDDDDD;
+            --border-color: #333333;
         }
 
         * {
@@ -132,11 +132,11 @@
         /* --- Common Section Styles --- */
         .features, .testimonials, .pricing, .demo-test, .course-details, .contact-cta {
             padding: 80px 0;
-            background-color: var(--secondary-bg);
         }
         
-        .features, .pricing {
-            background-color: var(--primary-bg);
+        .features, .pricing, .testimonials, .demo-test, .course-details, .contact-cta {
+            background-color: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
         }
         
         .section-heading {
@@ -155,7 +155,7 @@
         }
 
         .feature-item {
-            background-color: var(--secondary-bg);
+            background-color: var(--primary-bg);
             padding: 30px;
             border-radius: 12px;
             border: 1px solid var(--border-color);
@@ -228,7 +228,7 @@
 
         /* --- Testimonials Section --- */
         .testimonials {
-            background-color: var(--secondary-bg);
+            background-color: var(--primary-bg);
         }
 
         .testimonial-grid {
@@ -238,7 +238,7 @@
         }
 
         .testimonial-card {
-            background-color: var(--primary-bg);
+            background-color: var(--secondary-bg);
             padding: 30px;
             border-radius: 12px;
             border: 1px solid var(--border-color);
@@ -310,7 +310,7 @@
             padding: 12px;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            background-color: #FFFFFF;
+            background-color: #222222;
             color: var(--text-primary);
             font-size: 16px;
         }
@@ -340,7 +340,7 @@
         }
         
         .pricing-card {
-            background-color: var(--secondary-bg);
+            background-color: var(--primary-bg);
             padding: 40px;
             border-radius: 12px;
             border: 1px solid var(--border-color);
