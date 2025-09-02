@@ -24,6 +24,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         body {
@@ -75,13 +76,13 @@
             color: var(--text-secondary);
             font-weight: 500;
             border-radius: 8px;
-            transition: all 0.3s ease;
         }
         
         .nav-menu a:hover,
         .nav-menu a.active {
             background-color: var(--primary-bg);
             color: var(--accent-blue);
+            transform: scale(1.05);
         }
 
         .nav-menu a span {
@@ -97,12 +98,13 @@
             text-decoration: none;
             font-weight: 600;
             text-align: center;
-            transition: all 0.3s ease;
         }
         
         .logout-button:hover {
             background-color: var(--text-secondary);
             color: var(--primary-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         /* --- Main Content Area --- */
@@ -165,6 +167,12 @@
             box-shadow: var(--shadow-dark);
             max-width: 700px;
             margin: 0 auto 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .profile-details-grid {
@@ -235,11 +243,12 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         
         .change-photo-button:hover {
             background-color: #5a6268;
+            transform: scale(1.05);
         }
 
         .password-change-form {
@@ -275,11 +284,12 @@
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .save-button:hover {
             background-color: var(--accent-blue-dark);
+            transform: scale(1.05);
         }
         
         .footer {
