@@ -45,6 +45,8 @@
             left: 0;
             top: 0;
             border-right: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+            z-index: 1000;
         }
         
         .logo {
@@ -108,6 +110,7 @@
             margin-left: 250px;
             padding: 30px;
             width: calc(100% - 250px);
+            transition: margin-left 0.3s ease;
         }
         
         .header {
@@ -284,6 +287,83 @@
             text-align: center;
             color: var(--text-secondary);
             font-size: 14px;
+        }
+        
+        /* --- Responsive Design (for Mobile Devices) --- */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                padding: 15px;
+            }
+            
+            .sidebar .logo {
+                display: none;
+            }
+
+            .nav-menu {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                gap: 10px;
+            }
+
+            .nav-menu a {
+                padding: 8px 10px;
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .nav-menu a span {
+                font-size: 16px;
+            }
+
+            .logout-button {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+                width: 100%;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
+
+            .user-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+                margin-top: 10px;
+            }
+            
+            .dashboard-grid, .tests-container, .performance-grid, .profile-details-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .upcoming-list li, .results-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .test-action, .result-score {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
