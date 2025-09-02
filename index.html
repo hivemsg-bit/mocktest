@@ -1,1 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA Test Series - Ace Your Exams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #1A1A1A;
+            --secondary-bg: #2C2C2C;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --accent-blue: #007bff;
+            --accent-blue-dark: #0056b3;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Navigation Bar --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        .login-button {
+            background-color: transparent;
+            border: 1px solid var(--text-secondary);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: var(--text-secondary);
+            color: var(--primary-bg);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 80px);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            background-color: var(--accent-blue);
+            color: var(--text-primary);
+            font-size: 18px;
+            font-weight: 600;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .hero-button:hover {
+            background-color: var(--accent-blue-dark);
+        }
+
+        /* --- Common Section Styles --- */
+        .features, .testimonials, .pricing, .demo-test {
+            padding: 80px 0;
+            background-color: var(--secondary-bg);
+        }
+
+        .section-heading {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* --- Features Section --- */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-item {
+            background-color: var(--primary-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials {
+            background-color: var(--primary-bg);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            font-style: italic;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card p {
+            font-size: 16px;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .student-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .student-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .student-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .student-info span {
+            display: block;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* --- Pricing Section --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background-color: var(--primary-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+
+        .pricing-card .price span {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 10px;
+        }
+
+        .pricing-card ul li:before {
+            content: '✔';
+            color: var(--accent-blue);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .buy-button {
+            background-color: var(--accent-blue);
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .buy-button:hover {
+            background-color: var(--accent-blue-dark);
+        }
+
+        /* --- Demo Test Section --- */
+        .demo-test {
+            background-color: var(--primary-bg);
+        }
+
+        .demo-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--secondary-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #555;
+            border-radius: 8px;
+            background-color: #333;
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+        
+        .submit-button {
+            width: 100%;
+            background-color: var(--accent-blue);
+            color: var(--text-primary);
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            background-color: var(--accent-blue-dark);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--secondary-bg);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #333;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar-container">
+        <div class="container navbar">
+            <a href="#" class="logo">CA Test Series</a>
+            <ul class="nav-links">
+                <li><a href="#">Test Series</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="login-button">Student Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Master Your CA Exams with India's Premier Test Series</h1>
+            <p>Your one-stop solution for comprehensive, expert-evaluated mock tests designed to ensure your success. Trusted by thousands of top-ranking students.</p>
+            <a href="#demo-test-section" class="hero-button">Take a Free Demo Test</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-heading">Why Choose Our CA Test Series?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <img src="https://via.placeholder.com/80" alt="ICAI Pattern Icon" class="feature-icon">
+                    <h3>ICAI-Aligned Papers</h3>
+                    <p>Our mock tests are meticulously designed to match the latest ICAI exam patterns and difficulty levels, giving you a real exam feel.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://via.placeholder.com/80" alt="Expert Evaluation Icon" class="feature-icon">
+                    <h3>Expert Evaluation</h3>
+                    <p>Papers are evaluated by experienced Chartered Accountants and ex-examiners, providing you with valuable insights and detailed feedback.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://via.placeholder.com/80" alt="Detailed Analysis Icon" class="feature-icon">
+                    <h3>Detailed Performance Analysis</h3>
+                    <p>Receive a comprehensive report after each test, highlighting your strengths, weaknesses, and a clear roadmap for improvement.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://via.placeholder.com/80" alt="Doubt Solving Icon" class="feature-icon">
+                    <h3>Live Doubt Solving</h3>
+                    <p>Our dedicated support team is available to solve your subject-related doubts via live chat and dedicated forums.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-heading">What Our Students Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"The detailed feedback and personalized attention helped me identify my weak areas. I passed my exams with confidence!"</p>
+                    <div class="student-info">
+                        <img src="https://via.placeholder.com/50" alt="Student 1" class="student-photo">
+                        <h4>Aman Singh</h4>
+                        <span>CA Final Cleared</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The mock tests are exactly like the real ICAI exams. It's the best investment I've made in my CA journey."</p>
+                    <div class="student-info">
+                        <img src="https://via.placeholder.com/50" alt="Student 2" class="student-photo">
+                        <h4>Priya Sharma</h4>
+                        <span>AIR 35, CA Inter</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Fast evaluation and expert guidance make this test series a game-changer. Highly recommended for every CA aspirant."</p>
+                    <div class="student-info">
+                        <img src="https://via.placeholder.com/50" alt="Student 3" class="student-photo">
+                        <h4>Rahul Kumar</h4>
+                        <span>CA Foundation Cleared</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo-test-section" class="demo-test">
+        <div class="container">
+            <h2 class="section-heading">Take a Free Demo Test</h2>
+            <form class="demo-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" required>
+                </div>
+                <div class="form-group">
+                    <label for="course">Select Course</label>
+                    <select id="course" name="course" required>
+                        <option value="">Select a course</option>
+                        <option value="foundation">CA Foundation</option>
+                        <option value="inter">CA Inter</option>
+                        <option value="final">CA Final</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                 <div class="form-group">
+                    <label for="enrollment">Enrollment Number</label>
+                    <input type="text" id="enrollment" name="enrollment">
+                </div>
+                <button type="submit" class="submit-button">Start Demo Test</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-heading">Our Pricing Plans</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>CA Foundation</h3>
+                    <div class="price">₹4,999<span>/course</span></div>
+                    <ul>
+                        <li>✔ Full Syllabus Mock Tests</li>
+                        <li>✔ Detailed Evaluation by CA's</li>
+                        <li>✔ Performance Dashboard</li>
+                        <li>✔ All India Ranking</li>
+                        <li>✔ Email & Forum Support</li>
+                    </ul>
+                    <a href="#" class="buy-button">Enroll Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>CA Inter</h3>
+                    <div class="price">₹7,999<span>/course</span></div>
+                    <ul>
+                        <li>✔ All Foundation Features</li>
+                        <li>✔ Chapter-wise & Full Syllabus Tests</li>
+                        <li>✔ One-on-one Mentorship</li>
+                        <li>✔ Live Doubt Solving Sessions</li>
+                        <li>✔ Exclusive Study Materials</li>
+                    </ul>
+                    <a href="#" class="buy-button">Enroll Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>CA Final</h3>
+                    <div class="price">₹12,999<span>/course</span></div>
+                    <ul>
+                        <li>✔ All Inter Features</li>
+                        <li>✔ Case Study Based Tests</li>
+                        <li>✔ Evaluation by Ex-Examiners</li>
+                        <li>✔ Final Exam Strategy Sessions</li>
+                        <li>✔ 24/7 Priority Support</li>
+                    </ul>
+                    <a href="#" class="buy-button">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CA Test Series. All rights reserved.</p>
+            <p>Designed with <span style="color: #ff0000;">&hearts;</span> for CA Aspirants.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
