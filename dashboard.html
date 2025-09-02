@@ -45,8 +45,10 @@
             left: 0;
             top: 0;
             border-right: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+            z-index: 1000;
         }
-        
+
         .logo {
             font-size: 24px;
             font-weight: 700;
@@ -54,16 +56,16 @@
             margin-bottom: 40px;
             color: var(--text-primary);
         }
-        
+
         .nav-menu {
             list-style: none;
             flex-grow: 1;
         }
-        
+
         .nav-menu li {
             margin-bottom: 15px;
         }
-        
+
         .nav-menu a {
             display: flex;
             align-items: center;
@@ -75,7 +77,7 @@
             border-radius: 8px;
             transition: all 0.3s ease;
         }
-        
+
         .nav-menu a:hover,
         .nav-menu a.active {
             background-color: var(--primary-bg);
@@ -97,7 +99,7 @@
             text-align: center;
             transition: all 0.3s ease;
         }
-        
+
         .logout-button:hover {
             background-color: var(--text-secondary);
             color: var(--primary-bg);
@@ -108,31 +110,32 @@
             margin-left: 250px;
             padding: 30px;
             width: calc(100% - 250px);
+            transition: margin-left 0.3s ease;
         }
-        
-        .welcome-header {
+
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 40px;
         }
-        
-        .welcome-header h1 {
+
+        .header h1 {
             font-size: 32px;
             font-weight: 700;
         }
-        
+
         .user-info {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-        
+
         .user-info h3 {
             font-size: 18px;
             font-weight: 600;
         }
-        
+
         .profile-pic {
             width: 45px;
             height: 45px;
@@ -145,34 +148,6 @@
             font-weight: bold;
             color: var(--primary-bg);
         }
-        
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .stat-card {
-            background-color: var(--secondary-bg);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            box-shadow: var(--shadow-dark);
-        }
-        
-        .stat-card h3 {
-            font-size: 40px;
-            font-weight: 700;
-            color: var(--accent-blue);
-            margin-bottom: 5px;
-        }
-        
-        .stat-card p {
-            font-size: 16px;
-            color: var(--text-secondary);
-        }
 
         .section-heading {
             font-size: 28px;
@@ -181,7 +156,6 @@
             color: var(--text-primary);
         }
 
-        /* --- Upcoming Tests & Recent Results --- */
         .card {
             background-color: var(--secondary-bg);
             padding: 25px;
@@ -189,6 +163,21 @@
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-dark);
             margin-bottom: 30px;
+        }
+
+        .dashboard-grid, .tests-container, .performance-grid, .profile-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card, .test-card, .stat-item {
+            background-color: var(--secondary-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            box-shadow: var(--shadow-dark);
         }
 
         .upcoming-list, .results-list {
@@ -218,7 +207,7 @@
             color: var(--text-secondary);
         }
 
-        .test-action a, .result-score {
+        .test-action a, .result-score, .action-button {
             padding: 8px 15px;
             background-color: var(--accent-blue);
             color: var(--primary-bg);
@@ -259,6 +248,83 @@
             color: var(--text-secondary);
             font-size: 14px;
         }
+
+        /* --- Responsive Design (for Mobile Devices) --- */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                padding: 15px;
+            }
+            
+            .sidebar .logo {
+                display: none;
+            }
+
+            .nav-menu {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                gap: 10px;
+            }
+
+            .nav-menu a {
+                padding: 8px 10px;
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .nav-menu a span {
+                font-size: 16px;
+            }
+
+            .logout-button {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+                width: 100%;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
+
+            .user-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+                margin-top: 10px;
+            }
+            
+            .dashboard-grid, .tests-container, .performance-grid, .profile-details-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .upcoming-list li, .results-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .test-action, .result-score {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -275,7 +341,7 @@
     </div>
 
     <div class="main-content">
-        <div class="welcome-header">
+        <div class="header">
             <h1>Hello, Rahul!</h1>
             <div class="user-info">
                 <h3>CA Final | Group 1</h3>
