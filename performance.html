@@ -24,6 +24,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         body {
@@ -75,13 +76,13 @@
             color: var(--text-secondary);
             font-weight: 500;
             border-radius: 8px;
-            transition: all 0.3s ease;
         }
 
         .nav-menu a:hover,
         .nav-menu a.active {
             background-color: var(--primary-bg);
             color: var(--accent-blue);
+            transform: scale(1.05);
         }
 
         .nav-menu a span {
@@ -97,12 +98,13 @@
             text-decoration: none;
             font-weight: 600;
             text-align: center;
-            transition: all 0.3s ease;
         }
 
         .logout-button:hover {
             background-color: var(--text-secondary);
             color: var(--primary-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         /* --- Main Content Area --- */
@@ -164,6 +166,12 @@
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-dark);
             margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .chart-container {
@@ -192,6 +200,12 @@
             background-color: #2D3E4E;
             padding: 25px;
             border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .stat-item h4 {
