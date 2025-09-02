@@ -157,4 +157,161 @@
         .tests-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30
+            gap: 30px;
+        }
+        
+        .test-card {
+            background-color: var(--secondary-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-dark);
+            transition: transform 0.2s ease;
+        }
+
+        .test-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .test-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--accent-blue);
+        }
+        
+        .test-card p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+        
+        .test-status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-upcoming {
+            background-color: #f0ad4e;
+            color: var(--primary-bg);
+        }
+        
+        .status-completed {
+            background-color: #5cb85c;
+            color: var(--primary-bg);
+        }
+        
+        .test-actions {
+            margin-top: 20px;
+        }
+        
+        .action-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--accent-blue);
+            color: var(--primary-bg);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .action-button.secondary {
+            background-color: #6c757d;
+        }
+        
+        .action-button:hover {
+            background-color: var(--accent-blue-dark);
+        }
+        
+        .action-button.secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">CA Test Series</div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html"><span>📊</span> Dashboard</a></li>
+            <li><a href="my_tests.html" class="active"><span>📝</span> My Tests</a></li>
+            <li><a href="performance.html"><span>📈</span> Performance</a></li>
+            <li><a href="profile.html"><span>⚙️</span> Profile</a></li>
+        </ul>
+        <a href="index.html" class="logout-button">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>My Tests</h1>
+            <div class="user-info">
+                <h3>CA Final | Group 1</h3>
+                <div class="profile-pic">RK</div>
+            </div>
+        </div>
+        
+        <h2 class="section-heading">Upcoming Tests</h2>
+        <div class="tests-container">
+            <div class="test-card">
+                <h3>CA Final - Financial Reporting</h3>
+                <p>Date: 25th Sept, 2025 | Time: 10:00 AM</p>
+                <span class="test-status status-upcoming">Upcoming</span>
+                <div class="test-actions">
+                    <a href="start_test.html" class="action-button">Start Test</a>
+                    <a href="#" class="action-button secondary">Download Q. Paper</a>
+                </div>
+            </div>
+            
+            <div class="test-card">
+                <h3>CA Final - Corporate Law</h3>
+                <p>Date: 30th Sept, 2025 | Time: 02:00 PM</p>
+                <span class="test-status status-upcoming">Upcoming</span>
+                <div class="test-actions">
+                    <a href="start_test.html" class="action-button">Start Test</a>
+                    <a href="#" class="action-button secondary">Download Q. Paper</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-heading" style="margin-top: 40px;">Completed Tests</h2>
+        <div class="tests-container">
+            <div class="test-card">
+                <h3>CA Final - Strategic Management</h3>
+                <p>Date: 15th Sept, 2025</p>
+                <span class="test-status status-completed">Completed</span>
+                <div class="test-actions">
+                    <a href="view_result.html" class="action-button">View Result</a>
+                    <a href="#" class="action-button secondary">Download Solution</a>
+                </div>
+            </div>
+            <div class="test-card">
+                <h3>CA Final - Auditing</h3>
+                <p>Date: 10th Sept, 2025</p>
+                <span class="test-status status-completed">Completed</span>
+                <div class="test-actions">
+                    <a href="view_result.html" class="action-button">View Result</a>
+                    <a href="#" class="action-button secondary">Download Solution</a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 CA Test Series. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
