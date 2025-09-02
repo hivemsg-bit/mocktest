@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login | CA Test Series</title>
+    <title>Login | CA Test Series</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
             --border-color: #38424A;
             --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.2);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -33,11 +33,12 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
-        .login-container {
-            width: 90%;
-            max-width: 450px;
+        .container {
+            width: 100%;
+            max-width: 400px;
             background-color: var(--secondary-bg);
             padding: 40px;
             border-radius: 12px;
@@ -45,109 +46,129 @@
             box-shadow: var(--shadow-dark);
         }
 
-        .login-container h2 {
-            font-size: 32px;
-            font-weight: 700;
+        .container h2 {
             text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--accent-blue);
+        }
+
+        .form-group {
             margin-bottom: 20px;
         }
 
-        .login-container p {
-            text-align: center;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-        }
-
-        .login-form .form-group {
-            margin-bottom: 25px;
-        }
-
-        .login-form label {
+        .form-group label {
             display: block;
+            font-size: 1rem;
             font-weight: 500;
             margin-bottom: 8px;
-            color: var(--text-primary);
         }
 
-        .login-form input {
+        .form-group input {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
+            background-color: #2D3E4E;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            background-color: #2D3E4E;
             color: var(--text-primary);
-            font-size: 16px;
-            transition: border-color 0.3s ease;
+            font-size: 1rem;
         }
 
-        .login-form input:focus {
+        .form-group input:focus {
             outline: none;
             border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.3);
         }
 
-        .login-form .login-button {
+        .password-container {
+            position: relative;
+        }
+
+        .password-container input {
+            padding-right: 40px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        .btn-submit {
             width: 100%;
+            padding: 12px;
             background-color: var(--accent-blue);
-            color: var(--primary-bg);
-            padding: 16px;
             border: none;
             border-radius: 8px;
-            font-size: 19px;
+            color: var(--primary-bg);
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease;
         }
 
-        .login-form .login-button:hover {
+        .btn-submit:hover {
             background-color: var(--accent-blue-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .login-container .forgot-password,
-        .login-container .signup-link {
-            display: block;
+        .link-text {
             text-align: center;
             margin-top: 20px;
             color: var(--text-secondary);
-            font-size: 14px;
         }
 
-        .login-container .signup-link a {
+        .link-text a {
             color: var(--accent-blue);
             text-decoration: none;
             font-weight: 600;
         }
 
-        .login-container .signup-link a:hover {
+        .link-text a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <div class="login-container">
-        <h2>Student Login</h2>
-        <p>Log in to your dashboard to track your progress.</p>
-        
-        <form action="dashboard.html" class="login-form">
+    <div class="container">
+        <h2>Login</h2>
+        <form action="dashboard.html" method="get">
             <div class="form-group">
-                <label for="username">Username / Email</label>
-                <input type="text" id="username" name="username" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
             </div>
-            <div class="form-group">
+            <div class="form-group password-container">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+                <button type="button" class="toggle-password" id="togglePassword">👁️</button>
             </div>
-            <button type="submit" class="login-button">Login</button>
+            <button type="submit" class="btn-submit">Login</button>
         </form>
-
-        <a href="#" class="forgot-password">Forgot Password?</a>
-        
-        <div class="signup-link">
-            Don't have an account? <a href="signup.html">Create a new account</a>
-        </div>
+        <p class="link-text">Don't have an account? <a href="signup.html">Sign Up</a></p>
     </div>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            if (type === 'password') {
+                this.innerHTML = '👁️';
+            } else {
+                this.innerHTML = '🙈';
+            }
+        });
+    </script>
 
 </body>
 </html>
