@@ -6,16 +6,17 @@
     <title>CA Test Series - Ace Your Exams</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-bg: #111111;
-            --secondary-bg: #1A1A1A;
-            --text-primary: #FFFFFF;
-            --text-secondary: #B0B0B0;
-            --accent-blue: #007bff;
-            --accent-blue-dark: #0056b3;
-            --border-color: #333333;
+            --primary-bg: #FFFFFF;
+            --secondary-bg: #F8F8F8;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --accent-color: #C5D8D1; /* Your chosen color */
+            --accent-dark: #A9C2BB; /* A slightly darker shade of your accent */
+            --border-color: #E0E0E0;
+            --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
 
         * {
@@ -28,12 +29,13 @@
         body {
             background-color: var(--primary-bg);
             color: var(--text-primary);
+            line-height: 1.6;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 25px; /* Slightly more padding for less emptiness */
         }
 
         /* --- Navigation Bar --- */
@@ -41,12 +43,16 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 18px 0; /* Slightly more compact */
             border-bottom: 1px solid var(--border-color);
+            background-color: var(--primary-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 26px; /* Slightly larger */
             font-weight: 700;
             color: var(--text-primary);
             text-decoration: none;
@@ -55,34 +61,35 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 28px; /* Slightly more gap */
             align-items: center;
         }
 
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500; /* Medium weight */
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--text-primary);
+            color: var(--accent-color); /* Hover effect with accent color */
         }
         
         .login-button {
-            background-color: transparent;
-            border: 1px solid var(--text-secondary);
-            color: var(--text-secondary);
-            padding: 8px 16px;
-            border-radius: 5px;
+            background-color: var(--accent-color); /* Accent color button */
+            border: 1px solid var(--accent-color);
+            color: var(--text-primary);
+            padding: 9px 18px; /* Slightly larger */
+            border-radius: 6px;
             text-decoration: none;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .login-button:hover {
-            background-color: var(--text-secondary);
-            color: var(--primary-bg);
+            background-color: var(--accent-dark);
+            border-color: var(--accent-dark);
         }
 
         /* --- Hero Section --- */
@@ -90,170 +97,209 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: calc(100vh - 80px);
+            min-height: 80vh; /* Reduced height for less emptiness */
             text-align: center;
-            padding: 40px 0;
+            padding: 60px 0;
+            background-color: var(--secondary-bg); /* Use secondary background for hero */
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px; /* Wider content */
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 52px; /* Larger heading */
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
+            line-height: 1.15;
+            margin-bottom: 25px; /* More spacing */
+            color: var(--text-primary);
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: 19px; /* Larger text */
             font-weight: 400;
             color: var(--text-secondary);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .hero-button {
-            background-color: var(--accent-blue);
-            color: #FFFFFF;
-            font-size: 18px;
+            background-color: var(--accent-color);
+            color: var(--text-primary);
+            font-size: 19px;
             font-weight: 600;
-            padding: 15px 35px;
+            padding: 16px 40px; /* Larger button */
             text-decoration: none;
             border-radius: 8px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             display: inline-block;
+            box-shadow: var(--shadow-light);
         }
 
         .hero-button:hover {
-            background-color: var(--accent-blue-dark);
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
         }
 
         /* --- Common Section Styles --- */
         .features, .testimonials, .pricing, .demo-test, .course-details, .contact-cta {
-            padding: 80px 0;
+            padding: 70px 0; /* Slightly reduced padding for less emptiness */
         }
         
         .features, .pricing, .testimonials, .demo-test, .course-details, .contact-cta {
-            background-color: var(--secondary-bg);
+            background-color: var(--primary-bg);
             border-bottom: 1px solid var(--border-color);
         }
         
         .section-heading {
-            font-size: 36px;
+            font-size: 38px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px; /* More spacing for headings */
+            color: var(--text-primary);
+        }
+        
+        /* Alternating background colors for sections for better visual flow */
+        .course-details, .testimonials, .demo-test, .pricing {
+            background-color: var(--secondary-bg);
         }
 
         /* --- Features Section --- */
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Slightly larger min-width */
+            gap: 35px; /* Increased gap */
             text-align: center;
         }
 
         .feature-item {
             background-color: var(--primary-bg);
-            padding: 30px;
+            padding: 35px; /* More padding */
             border-radius: 12px;
             border: 1px solid var(--border-color);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-light);
         }
 
         .feature-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-7px); /* More pronounced hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
+            width: 85px; /* Slightly larger icon */
+            height: 85px;
+            margin-bottom: 25px;
+            border-radius: 50%;
+            background-color: var(--accent-color); /* Icon background */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            font-size: 40px;
+            font-weight: bold;
         }
+        /* Temporary placeholder icons */
+        .feature-icon[alt*="ICAI"] { content: '✓'; }
+        .feature-icon[alt*="Expert"] { content: '👩‍🏫'; }
+        .feature-icon[alt*="Analysis"] { content: '📊'; }
+        .feature-icon[alt*="Doubt"] { content: '💬'; }
+
 
         .feature-item h3 {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
         }
 
         .feature-item p {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-secondary);
         }
         
         /* --- Course Details Section --- */
-        .course-details .section-heading {
-            margin-bottom: 20px;
-        }
         .course-details-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* More compact cards */
+            gap: 30px;
         }
         .course-details-item {
             display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            padding: 20px;
+            flex-direction: column; /* Stack content vertically */
+            padding: 30px;
             background-color: var(--primary-bg);
             border-radius: 12px;
             border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .course-details-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         }
         .course-details-item img {
-            width: 60px;
-            height: 60px;
+            width: 70px; /* Larger image/icon */
+            height: 70px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            padding: 10px;
         }
         .course-details-item h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+        .course-details-item > p { /* Directly under H3 */
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
         }
         .course-details-item ul {
             list-style: none;
-            padding-left: 20px;
+            padding-left: 0; /* Remove default padding */
         }
         .course-details-item ul li {
             margin-bottom: 8px;
             color: var(--text-secondary);
+            font-size: 14px;
         }
         .course-details-item ul li:before {
             content: '•';
-            color: var(--accent-blue);
+            color: var(--accent-color);
             font-weight: bold;
             display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+            width: 1.2em;
+            margin-left: -1.2em;
         }
 
         /* --- Testimonials Section --- */
-        .testimonials {
-            background-color: var(--primary-bg);
-        }
-
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly larger cards */
             gap: 30px;
         }
 
         .testimonial-card {
-            background-color: var(--secondary-bg);
-            padding: 30px;
+            background-color: var(--primary-bg);
+            padding: 35px;
             border-radius: 12px;
             border: 1px solid var(--border-color);
-            font-style: italic;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-light);
         }
 
         .testimonial-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-7px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
         .testimonial-card p {
             font-size: 16px;
             color: var(--text-primary);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-style: italic; /* Keep italic for quotes */
         }
 
         .student-info {
@@ -263,109 +309,119 @@
         }
 
         .student-photo {
-            width: 50px;
-            height: 50px;
+            width: 55px; /* Larger photo */
+            height: 55px;
             border-radius: 50%;
             object-fit: cover;
+            border: 2px solid var(--accent-color); /* Accent border */
         }
 
         .student-info h4 {
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 600;
+            color: var(--text-primary);
         }
 
         .student-info span {
             display: block;
-            font-size: 13px;
+            font-size: 14px;
             color: var(--text-secondary);
         }
 
         /* --- Demo Test Section --- */
         .demo-test {
-            background-color: var(--primary-bg);
+            background-color: var(--secondary-bg);
         }
         
         .demo-form {
-            max-width: 600px;
+            max-width: 650px; /* Wider form */
             margin: 0 auto;
-            background-color: var(--secondary-bg);
-            padding: 40px;
+            background-color: var(--primary-bg);
+            padding: 45px; /* More padding */
             border-radius: 12px;
             border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-light);
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px; /* More spacing */
         }
         
         .form-group label {
             display: block;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 10px; /* More spacing */
             color: var(--text-primary);
+            font-size: 15px;
         }
         
         .form-group input, .form-group select {
             width: 100%;
-            padding: 12px;
+            padding: 14px; /* More padding */
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            background-color: #222222;
+            background-color: #FFFFFF;
             color: var(--text-primary);
             font-size: 16px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Subtle inner shadow */
         }
         
         .submit-button {
             width: 100%;
-            background-color: var(--accent-blue);
-            color: #FFFFFF;
-            padding: 15px;
+            background-color: var(--accent-color);
+            color: var(--text-primary);
+            padding: 16px; /* Larger button */
             border: none;
             border-radius: 8px;
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: var(--shadow-light);
         }
         
         .submit-button:hover {
-            background-color: var(--accent-blue-dark);
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
         }
 
         /* --- Pricing Section --- */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
         
         .pricing-card {
             background-color: var(--primary-bg);
-            padding: 40px;
+            padding: 45px; /* More padding */
             border-radius: 12px;
             border: 1px solid var(--border-color);
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-light);
         }
         
         .pricing-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-7px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
         .pricing-card h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 26px; /* Larger heading */
+            margin-bottom: 15px;
+            color: var(--text-primary);
         }
         
         .pricing-card .price {
-            font-size: 48px;
+            font-size: 52px; /* Larger price */
             font-weight: 700;
-            color: var(--accent-blue);
-            margin-bottom: 20px;
+            color: var(--accent-color);
+            margin-bottom: 25px;
         }
 
         .pricing-card .price span {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 400;
             color: var(--text-secondary);
         }
@@ -373,83 +429,92 @@
         .pricing-card ul {
             list-style: none;
             text-align: left;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             color: var(--text-secondary);
+            font-size: 15px;
         }
         
         .pricing-card ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .pricing-card ul li:before {
             content: '✔';
-            color: var(--accent-blue);
+            color: var(--accent-color);
             font-weight: bold;
             display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+            width: 1.2em;
+            margin-left: -1.2em;
         }
         
         .buy-button {
-            background-color: var(--accent-blue);
-            color: #FFFFFF;
+            background-color: var(--accent-color);
+            color: var(--text-primary);
             font-weight: 600;
-            padding: 12px 25px;
+            padding: 14px 30px; /* Larger button */
             text-decoration: none;
             border-radius: 8px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             display: inline-block;
+            box-shadow: var(--shadow-light);
         }
         
         .buy-button:hover {
-            background-color: var(--accent-blue-dark);
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
         }
         
         /* --- Contact CTA Section --- */
         .contact-cta {
-            background-color: var(--accent-blue);
-            color: #FFFFFF;
+            background-color: var(--accent-color); /* Accent color background */
+            color: var(--text-primary);
             text-align: center;
+            padding: 60px 0;
         }
         
         .contact-cta h2 {
-            font-size: 30px;
-            margin-bottom: 10px;
+            font-size: 34px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
         }
         
         .contact-cta p {
-            font-size: 18px;
-            margin-bottom: 30px;
+            font-size: 19px;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
         }
         
         .contact-cta-button {
-            background-color: #FFFFFF;
-            color: var(--accent-blue);
-            font-size: 18px;
+            background-color: var(--primary-bg); /* White button on accent background */
+            color: var(--accent-color);
+            font-size: 19px;
             font-weight: 600;
-            padding: 15px 35px;
+            padding: 16px 40px;
             text-decoration: none;
             border-radius: 8px;
             transition: all 0.3s ease;
             display: inline-block;
+            box-shadow: var(--shadow-light);
         }
         
         .contact-cta-button:hover {
             background-color: var(--text-secondary);
-            color: #FFFFFF;
+            color: var(--primary-bg);
+            transform: translateY(-2px);
         }
 
         /* --- Footer --- */
         .footer {
-            background-color: var(--secondary-bg);
+            background-color: var(--primary-bg); /* Primary BG for footer */
             color: var(--text-secondary);
             text-align: center;
-            padding: 40px 0;
+            padding: 35px 0; /* More compact footer */
             border-top: 1px solid var(--border-color);
+            font-size: 14px;
         }
         
         .footer p {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -470,8 +535,8 @@
 
     <section class="hero">
         <div class="container hero-content">
-            <h1>Master Your CA Exams with India's Premier Test Series</h1>
-            <p>Your one-stop solution for comprehensive, expert-evaluated mock tests designed to ensure your success. Trusted by thousands of top-ranking students.</p>
+            <h1>Unlock Your CA Success with Premier Mock Test Series</h1>
+            <p>Experience real exam simulations, expert evaluations, and personalized feedback to master your CA Foundation, Inter, and Final exams.</p>
             <a href="#demo-test-section" class="hero-button">Take a Free Demo Test</a>
         </div>
     </section>
@@ -481,10 +546,10 @@
             <h2 class="section-heading">Comprehensive Test Series for Every Level</h2>
             <div class="course-details-grid">
                 <div class="course-details-item">
-                    <img src="https://via.placeholder.com/60/D3D3D3" alt="Foundation Icon">
+                    <img src="https://via.placeholder.com/70/C5D8D1/333333?text=F" alt="Foundation Icon">
                     <div>
                         <h3>CA Foundation</h3>
-                        <p>Our Foundation test series covers all four subjects with chapter-wise and full syllabus tests to build a strong base.</p>
+                        <p>Build a rock-solid base with our meticulously crafted test papers covering all four subjects. Chapter-wise & full syllabus tests.</p>
                         <ul>
                             <li>✔ Paper-1: Principles and Practice of Accounting</li>
                             <li>✔ Paper-2: Business Laws and Business Correspondence and Reporting</li>
@@ -494,10 +559,10 @@
                     </div>
                 </div>
                 <div class="course-details-item">
-                    <img src="https://via.placeholder.com/60/D3D3D3" alt="Inter Icon">
+                    <img src="https://via.placeholder.com/70/C5D8D1/333333?text=I" alt="Inter Icon">
                     <div>
                         <h3>CA Inter</h3>
-                        <p>Get ready for your intermediate exams with our expertly crafted test papers for both Group I & Group II.</p>
+                        <p>Excel in your intermediate exams with our expertly designed mock tests for both Group I & Group II, ensuring complete coverage.</p>
                         <ul>
                             <li>✔ Group I: Accounting, Corporate and Other Laws, Cost and Management Accounting, Taxation</li>
                             <li>✔ Group II: Advanced Accounting, Auditing and Assurance, Enterprise Information Systems & Strategic Management, Financial Management & Economics for Finance</li>
@@ -505,10 +570,10 @@
                     </div>
                 </div>
                 <div class="course-details-item">
-                    <img src="https://via.placeholder.com/60/D3D3D3" alt="Final Icon">
+                    <img src="https://via.placeholder.com/70/C5D8D1/333333?text=L" alt="Final Icon">
                     <div>
                         <h3>CA Final</h3>
-                        <p>Our Final test series is designed to prepare you for the highest level with case study based papers and expert-level analysis.</p>
+                        <p>Conquer the toughest challenge with our advanced test series, featuring case study-based papers and in-depth expert analysis.</p>
                         <ul>
                             <li>✔ Group I: Financial Reporting, Strategic Financial Management, Advanced Auditing and Professional Ethics, Corporate and Economic Laws</li>
                             <li>✔ Group II: Strategic Cost Management and Performance Evaluation, Elective Paper, Direct Tax Laws, Indirect Tax Laws</li>
@@ -524,22 +589,22 @@
             <h2 class="section-heading">Why Choose Our CA Test Series?</h2>
             <div class="feature-grid">
                 <div class="feature-item">
-                    <img src="https://via.placeholder.com/80/D3D3D3" alt="ICAI Pattern Icon" class="feature-icon">
+                    <img src="https://via.placeholder.com/85/C5D8D1/333333?text=✓" alt="ICAI Pattern Icon" class="feature-icon">
                     <h3>ICAI-Aligned Papers</h3>
                     <p>Our mock tests are meticulously designed to match the latest ICAI exam patterns and difficulty levels, giving you a real exam feel.</p>
                 </div>
                 <div class="feature-item">
-                    <img src="https://via.placeholder.com/80/D3D3D3" alt="Expert Evaluation Icon" class="feature-icon">
+                    <img src="https://via.placeholder.com/85/C5D8D1/333333?text=👩‍🏫" alt="Expert Evaluation Icon" class="feature-icon">
                     <h3>Expert Evaluation</h3>
                     <p>Papers are evaluated by experienced Chartered Accountants and ex-examiners, providing you with valuable insights and detailed feedback.</p>
                 </div>
                 <div class="feature-item">
-                    <img src="https://via.placeholder.com/80/D3D3D3" alt="Detailed Analysis Icon" class="feature-icon">
+                    <img src="https://via.placeholder.com/85/C5D8D1/333333?text=📊" alt="Detailed Analysis Icon" class="feature-icon">
                     <h3>Detailed Performance Analysis</h3>
                     <p>Receive a comprehensive report after each test, highlighting your strengths, weaknesses, and a clear roadmap for improvement.</p>
                 </div>
                 <div class="feature-item">
-                    <img src="https://via.placeholder.com/80/D3D3D3" alt="Doubt Solving Icon" class="feature-icon">
+                    <img src="https://via.placeholder.com/85/C5D8D1/333333?text=💬" alt="Doubt Solving Icon" class="feature-icon">
                     <h3>Live Doubt Solving</h3>
                     <p>Our dedicated support team is available to solve your subject-related doubts via live chat and dedicated forums.</p>
                 </div>
@@ -554,7 +619,7 @@
                 <div class="testimonial-card">
                     <p>"The detailed feedback and personalized attention helped me identify my weak areas. I passed my exams with confidence!"</p>
                     <div class="student-info">
-                        <img src="https://via.placeholder.com/50/D3D3D3" alt="Student 1" class="student-photo">
+                        <img src="https://via.placeholder.com/55/C5D8D1/333333?text=AS" alt="Student 1" class="student-photo">
                         <h4>Aman Singh</h4>
                         <span>CA Final Cleared</span>
                     </div>
@@ -562,7 +627,7 @@
                 <div class="testimonial-card">
                     <p>"The mock tests are exactly like the real ICAI exams. It's the best investment I've made in my CA journey."</p>
                     <div class="student-info">
-                        <img src="https://via.placeholder.com/50/D3D3D3" alt="Student 2" class="student-photo">
+                        <img src="https://via.placeholder.com/55/C5D8D1/333333?text=PS" alt="Student 2" class="student-photo">
                         <h4>Priya Sharma</h4>
                         <span>AIR 35, CA Inter</span>
                     </div>
@@ -570,7 +635,7 @@
                 <div class="testimonial-card">
                     <p>"Fast evaluation and expert guidance make this test series a game-changer. Highly recommended for every CA aspirant."</p>
                     <div class="student-info">
-                        <img src="https://via.placeholder.com/50/D3D3D3" alt="Student 3" class="student-photo">
+                        <img src="https://via.placeholder.com/55/C5D8D1/333333?text=RK" alt="Student 3" class="student-photo">
                         <h4>Rahul Kumar</h4>
                         <span>CA Foundation Cleared</span>
                     </div>
@@ -663,9 +728,9 @@
     
     <section class="contact-cta">
         <div class="container">
-            <h2>Have Questions? We're Here to Help.</h2>
-            <p>Get in touch with our expert team for personalized guidance and support.</p>
-            <a href="#" class="contact-cta-button">Contact Us</a>
+            <h2>Ready to Ace Your CA Exams?</h2>
+            <p>Join India's leading CA test series platform and get the edge you need for success. Have questions? We're here to help!</p>
+            <a href="#" class="contact-cta-button">Contact Our Team</a>
         </div>
     </section>
 
